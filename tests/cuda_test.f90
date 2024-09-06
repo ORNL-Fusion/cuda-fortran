@@ -23,12 +23,11 @@
       CALL cuda_checkerror(cuInit_f(0))
       CALL cuda_checkerror(cuDeviceGetCount_f(count))
       CALL cuda_checkerror(cuDeviceGet_f(device, 0))
-      CALL cuda_checkerror(cuCtxCreate_f(context, 0, device))
-      CALL cuda_checkerror(cuCtxSetCurrent_f(context))
+      CALL cuda_checkerror(cuDevicePrimaryCtxRetain_f(context, device))
 
       CALL cuda_checkerror(cuMemAllocManaged_f(buffer, 800_int64, CU_MEM_ATTACH_GLOBAL))
       CALL cuda_checkerror(cuMemFree_f(buffer))
 
-      CALL cuda_checkerror(cuCtxDestroy_f(context))
+      CALL cuda_checkerror(cuDevicePrimaryCtxRelease_f(context))
 
       END PROGRAM

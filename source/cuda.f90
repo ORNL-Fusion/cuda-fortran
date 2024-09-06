@@ -77,33 +77,14 @@
 !>  @params[in]  device  THe cuda device.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuCtxCreate_f(context, flags, device)               &
-         BIND(C, NAME='cuCtxCreate')
+         CUresult FUNCTION cuDevicePrimaryCtxRetain_f(context, device)         &
+         BIND(C, NAME='cuDevicePrimaryCtxRetain')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
 
          CUcontext, INTENT(OUT) :: context
-         INTEGER(C_INT), VALUE  :: flags
          CUdevice, VALUE        :: device
-
-         END FUNCTION
-
-!-------------------------------------------------------------------------------
-!>  @brief Create a cuda context.
-!>
-!>  @params[out] context Handle to the cuda context.
-!>  @params[in]  flags   Flags to construct the context with.
-!>  @params[in]  device  THe cuda device.
-!>  @returns Error status.
-!-------------------------------------------------------------------------------
-         CUresult FUNCTION cuCtxSetCurrent_f(context)                          &
-         BIND(C, NAME='cuCtxSetCurrent')
-         USE, INTRINSIC :: iso_c_binding
-
-         IMPLICIT NONE
-
-         CUcontext, VALUE :: context
 
          END FUNCTION
 
@@ -113,8 +94,8 @@
 !>  @params[in] context Handle to the cuda context.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuCtxDestroy_f(context)                             &
-         BIND(C, NAME='cuCtxDestroy')
+         CUresult FUNCTION cuDevicePrimaryCtxRelease_f(context)                &
+         BIND(C, NAME='cuDevicePrimaryCtxRelease')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
