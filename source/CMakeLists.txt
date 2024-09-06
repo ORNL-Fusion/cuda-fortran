@@ -16,3 +16,10 @@ target_link_libraries (cuda_fortran
 
                        CudaInterface::CudaInterface
 )
+
+target_include_directories (cuda_fortran
+
+                            PUBLIC
+
+                            $<BUILD_INTERFACE:${CMAKE_CURRENT_BUILD_DIR}>
+)
