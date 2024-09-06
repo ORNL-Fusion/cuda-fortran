@@ -19,6 +19,7 @@ if (NOT TARGET CudaInterface::CudaInterface)
                            INTERFACE
 
                            CUDA::cusolver
+                           CUDA::cublasLt
     )
 
     target_compile_options (CudaInterface::CudaInterface
