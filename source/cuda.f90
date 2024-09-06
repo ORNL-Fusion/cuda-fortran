@@ -90,6 +90,24 @@
          END FUNCTION
 
 !-------------------------------------------------------------------------------
+!>  @brief Create a cuda context.
+!>
+!>  @params[out] context Handle to the cuda context.
+!>  @params[in]  flags   Flags to construct the context with.
+!>  @params[in]  device  THe cuda device.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuCtxSetCurrent_f(context)                          &
+         BIND(C, NAME='cuCtxSetCurrent')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUcontext, IVALUE :: context
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
 !>  @brief Destroy a cuda context.
 !>
 !>  @params[in] context Handle to the cuda context.
