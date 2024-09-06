@@ -46,7 +46,7 @@ macro (add_test_target target)
     )
     target_link_libraries (${target}
                            PRIVATE
-                           CudaInterface::CudaInterface
+                           cuda_fortran
     )
 
     add_test (NAME ${target}
