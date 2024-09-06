@@ -12,7 +12,7 @@
 !>  @params[in] message Error message for status.
 !>  @params[in] iounit  Io unit number.
 !-------------------------------------------------------------------------------
-      SUBROUTINE cuda_assert(status, message, iounit=stderr)
+      SUBROUTINE cuda_assert(status, message, iounit=error_unit)
 
       IMPLICIT NONE
 
