@@ -109,7 +109,7 @@
          cublasLtMatrixLayout_t, VALUE     :: Ddesc
          cublasLtMatmulAlgo_t, INTENT(OUT) :: algo
          CUdeviceptr, VALUE                :: workSpace
-         INTEGER(C_SIZE_T), INTENT(IN)     :: size
+         INTEGER(C_SIZE_T), INTENT(IN)     :: workSpaceSize
          CUstream                          :: stream
 
          END FUNCTION
