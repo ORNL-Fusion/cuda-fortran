@@ -27,7 +27,7 @@
       ELSE
          WRITE (error_unit, 1000) status, message
       END IF
-      EXIT(status)
+      CALL EXIT(status)
 
 1000  FORMAT('Error stats',i2,' : ',a)
 
