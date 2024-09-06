@@ -32,7 +32,7 @@
 
          IMPLICIT NONE
 
-         cusolverDnHandle_t, INTENT(out) :: handle
+         cusolverDnHandle_t, INTENT(OUT) :: handle
 
          END FUNCTION
 
@@ -64,7 +64,7 @@
 
          IMPLICIT NONE
 
-         cusolverDnParams_t, INTENT(out) :: params
+         cusolverDnParams_t, INTENT(OUT) :: params
 
          END FUNCTION
 
@@ -122,20 +122,20 @@
 
          IMPLICIT NONE
 
-         cusolverDnHandle_t, VALUE, INTENT(in)  :: handle
-         cusolverDnParams_t, VALUE, INTENT(in)  :: params
-         INTEGER (C_INT64_T), VALUE, INTENT(in) :: m
-         INTEGER (C_INT64_T), VALUE, INTENT(in) :: n
-         cudaDataType, VALUE, INTENT(in)        :: dataTypeA
+         cusolverDnHandle_t, VALUE, INTENT(IN)  :: handle
+         cusolverDnParams_t, VALUE, INTENT(IN)  :: params
+         INTEGER (C_INT64_T), VALUE, INTENT(IN) :: m
+         INTEGER (C_INT64_T), VALUE, INTENT(IN) :: n
+         cudaDataType, VALUE, INTENT(IN)        :: dataTypeA
          TYPE (C_PTR), VALUE                    :: A
-         INTEGER (C_INT64_T), VALUE, INTENT(in) :: lda
-         INTEGER (C_INT64_T), INTENT(out)       :: ipiv
-         cudaDataType, VALUE, INTENT(in)        :: computeType
+         INTEGER (C_INT64_T), VALUE, INTENT(IN) :: lda
+         INTEGER (C_INT64_T), INTENT(OUT)       :: ipiv
+         cudaDataType, VALUE, INTENT(IN)        :: computeType
          TYPE (C_PTR), VALUE                    :: bufferOnDevice
-         INTEGER (C_SIZE_T), VALUE, INTENT(in)  :: workspaceInBytesOnDevice
-         TYPE (C_PTR), INTENT(inout)            :: bufferOnHost
-         INTEGER (C_SIZE_T), VALUE, INTENT(in)  :: workspaceInBytesOnHost
-         INTEGER (C_INT), INTENT(out)           :: info
+         INTEGER (C_SIZE_T), VALUE, INTENT(IN)  :: workspaceInBytesOnDevice
+         TYPE (C_PTR), INTENT(INOUT)            :: bufferOnHost
+         INTEGER (C_SIZE_T), VALUE, INTENT(IN)  :: workspaceInBytesOnHost
+         INTEGER (C_INT), INTENT(OUT)           :: info
 
          END FUNCTION
       END INTERFACE
