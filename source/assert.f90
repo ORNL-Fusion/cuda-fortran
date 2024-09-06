@@ -1,5 +1,5 @@
       MODULE cuda_assert
-      USE, INTRINSIC :: iso_fortran_env, only : stderr
+      USE, INTRINSIC :: iso_fortran_env, only : error_unit
 
       IMPLICIT NONE
 
@@ -21,7 +21,7 @@
       CHARACTER (len=*), INTENT(in) :: message
 
 !  Start of executable code
-      WRITE (iounit,1000) status, message
+      WRITE (error_unit,1000) status, message
       EXIT(status)
 
 1000  FORMAT('Error stats',i2,' : ',a)
