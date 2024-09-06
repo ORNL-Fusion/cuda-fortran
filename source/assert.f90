@@ -12,7 +12,7 @@
 !>  @params[in] message Error message for status.
 !>  @params[in] iounit  Io unit number.
 !-------------------------------------------------------------------------------
-      SUBROUTINE cuda_assert(status, message, iounit=error_unit)
+      SUBROUTINE cuda_assert(status, message, iounit)
 
       IMPLICIT NONE
 
@@ -22,7 +22,11 @@
       INTEGER, OPTIONAL, INTENT(IN) :: iounit
 
 !  Start of executable code
-      WRITE (error_unit,1000) status, message
+      IF (PRESENT(iounit)) THEN
+         WRITE (iounit, 1000) status, message
+      ELSE
+         WRITE (error_unit, 1000) status, message
+      END IF
       EXIT(status)
 
 1000  FORMAT('Error stats',i2,' : ',a)
