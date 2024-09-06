@@ -95,7 +95,7 @@
 !-------------------------------------------------------------------------------
 !>  @brief Cuda error types.
 !-------------------------------------------------------------------------------
-      EMUM, BIND(C)
+      ENUM, BIND(C)
          ENUMERATOR :: CUDA_SUCCESS                              = 0
          ENUMERATOR :: CUDA_ERROR_INVALID_VALUE                  = 1
          ENUMERATOR :: CUDA_ERROR_OUT_OF_MEMORY                  = 2
