@@ -1,5 +1,16 @@
+!*******************************************************************************
+!>  @file cublas.f90
+!>  @brief Contains module @ref cudaASSERT.
+!
+!  Note separating the Doxygen comment block here so detailed decription is
+!  found in the Module not the file.
+!
+!>  Defines utilities for assertions.
+!*******************************************************************************
+
       MODULE cudaASSERT
       USE, INTRINSIC :: iso_fortran_env, only : error_unit
+      USE, INTRINSIC :: iso_c_binding
 
       IMPLICIT NONE
 
@@ -17,7 +28,7 @@
       IMPLICIT NONE
 
 !  Declare Arguments
-      INTEGER, INTENT(IN)           :: status
+      INTEGER(C_SIZE_T), INTENT(IN)           :: status
       CHARACTER (len=*), INTENT(IN) :: message
       INTEGER, OPTIONAL, INTENT(IN) :: iounit
 

@@ -1,3 +1,13 @@
+!*******************************************************************************
+!>  @file cublas.f90
+!>  @brief Contains module @ref cuBLAS.
+!
+!  Note separating the Doxygen comment block here so detailed decription is
+!  found in the Module not the file.
+!
+!>  Defines the interface for cublas library.
+!*******************************************************************************
+
       MODULE cuBLAS
 
       USE, INTRINSIC :: iso_c_binding
