@@ -1,6 +1,6 @@
       MODULE cuSOLVER
 
-      USE cuda_assert
+      USE cudaASSERT
       USE cuda
       USE, INTRINSIC :: iso_c_binding
 

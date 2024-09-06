@@ -1,4 +1,4 @@
-      MODULE cuda_assert
+      MODULE cudaASSERT
       USE, INTRINSIC :: iso_fortran_env, only : error_unit
 
       IMPLICIT NONE
