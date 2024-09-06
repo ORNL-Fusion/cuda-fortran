@@ -37,7 +37,7 @@ if (NOT TARGET CudaInterface::CudaInterface)
                                 cudaDataType=INTEGER\(C_SIZE_T\)
 
                                 CUresult=INTEGER\(C_SIZE_T\)
-                                CUDevice=TYPE\(C_PTR\)
+                                CUdevice=TYPE\(C_PTR\)
                                 CUcontext=TYPE\(C_PTR\)
                                 CUdeviceptr=TYPE\(C_PTR\)
                                 CUstream=TYPE\(C_PTR\)
