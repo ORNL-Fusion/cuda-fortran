@@ -20,7 +20,7 @@
 !  Start of executable code.
       CALL cuda_checkerror(cuInit_f(0))
       CALL cuda_checkerror(cuDeviceGetCount_f(count))
-      CALL cuda_checkerror(cuGetDevice_f(device, 0))
+      CALL cuda_checkerror(cuDeviceGet_f(device, 0))
       CALL cuda_checkerror(cuCtxCreate_f(context, 0, device))
       CALL cuda_checkerror(cuCtxDestroy_f(context))
 

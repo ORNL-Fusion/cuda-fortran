@@ -58,8 +58,8 @@
 !>  @params[in]  index  Index of the cuda device.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuGetDevice_f(device, index)                        &
-         BIND(C, NAME='cuGetDevice')
+         CUresult FUNCTION cuDeviceGet_f(device, index)                        &
+         BIND(C, NAME='cuDeviceGet')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
