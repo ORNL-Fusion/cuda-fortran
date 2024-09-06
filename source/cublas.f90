@@ -14,7 +14,7 @@
 !>  @params[out] handle Handle to the cublas library.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         FUNCTION cublasLtCreate_f(handle) RESULT(cublasStatus_t)              &
+         cublasStatus_t FUNCTION cublasLtCreate_f(handle)                      &
          BIND(C, NAME='cublasLtCreate')
          USE, INTRINSIC :: iso_c_binding
 
@@ -30,7 +30,7 @@
 !>  @params[in] handle Handle to the cublas library.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         FUNCTION cublasLtDestroy_f(handle) RESULT(cublasStatus_t)             &
+         cublasStatus_t FUNCTION cublasLtDestroy_f(handle) &
          BIND(C, NAME='cublasLtDestroy')
          USE, INTRINSIC :: iso_c_binding
 
