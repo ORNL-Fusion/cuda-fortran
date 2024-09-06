@@ -64,8 +64,8 @@
 
          IMPLICIT NONE
 
-         CUdevice, INTENT(INOUT) :: device
-         INTEGER(C_INT)          :: index
+         CUdevice, INTENT(OUT) :: device
+         INTEGER(C_INT)        :: index
 
          END FUNCTION
 
