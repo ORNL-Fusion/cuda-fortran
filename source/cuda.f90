@@ -89,9 +89,9 @@
 
          IMPLICIT NONE
 
-         CUcontext, POINTER    :: context
-         INTEGER(C_INT), VALUE :: flags
-         CUdevice, VALUE       :: device
+         TYPE(CUcontext), POINTER :: context
+         INTEGER(C_INT), VALUE    :: flags
+         CUdevice, VALUE          :: device
 
          END FUNCTION
 
@@ -109,7 +109,7 @@
 
          IMPLICIT NONE
 
-         CUcontext, INTENT(in) :: context
+         TYPE(CUcontext), INTENT(in) :: context
 
          END FUNCTION
 
@@ -125,7 +125,7 @@
 
          IMPLICIT NONE
 
-         CUcontext, INTENT(in) :: context
+         TYPE(CUcontext), INTENT(in) :: context
 
          END FUNCTION
 
