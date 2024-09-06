@@ -65,7 +65,7 @@
          IMPLICIT NONE
 
          CUdevice, INTENT(OUT) :: device
-         INTEGER(C_INT)        :: index
+         INTEGER(C_INT), VALUE :: index
 
          END FUNCTION
 
@@ -84,7 +84,7 @@
          IMPLICIT NONE
 
          CUcontext, INTENT(OUT) :: context
-         INTEGER(C_INT)         :: flags
+         INTEGER(C_INT), VALUE  :: flags
          CUdevice, VALUE        :: device
 
          END FUNCTION
