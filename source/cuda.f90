@@ -26,7 +26,7 @@
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
          CUresult FUNCTION cuInit_f(flags)                                     &
-         BIND(C, 'cuInit')
+         BIND(C, NAME='cuInit')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
@@ -42,7 +42,7 @@
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
          CUresult FUNCTION cuDeviceGetCount_f(count)                           &
-         BIND(C, 'cuDeviceGetCount')
+         BIND(C, NAME='cuDeviceGetCount')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
