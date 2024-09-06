@@ -5,7 +5,9 @@ target_sources (cuda_fortran
                 PRIVATE
 
                 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/assert.f90>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/cuda.f90>
                 $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/cusolver.f90>
+                $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/cublas.f90>
 )
 
 target_link_libraries (cuda_fortran
