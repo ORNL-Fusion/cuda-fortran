@@ -39,7 +39,7 @@ if (NOT TARGET CudaInterface::CudaInterface)
                                 CUresult=INTEGER\(C_SIZE_T\)
                                 CUdevice=INTEGER\(C_INT\)
                                 CUcontext=TYPE\(C_PTR\)
-                                CUdeviceptr=INTEGER\(C_INT\)
+                                CUdeviceptr=INTEGER\(C_SIZE_T\)
                                 CUstream=TYPE\(C_PTR\)
 
                                 cusolverStatus_t=INTEGER\(C_SIZE_T\)
