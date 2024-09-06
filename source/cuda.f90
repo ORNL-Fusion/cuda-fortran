@@ -9,6 +9,7 @@
 !*******************************************************************************
 
       MODULE cuda
+      USE, INTRINSIC :: iso_c_binding
 
       IMPLICIT NONE
 
