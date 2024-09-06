@@ -103,7 +103,7 @@
 
          IMPLICIT NONE
 
-         CUcontext, IVALUE :: context
+         CUcontext, VALUE :: context
 
          END FUNCTION
 
