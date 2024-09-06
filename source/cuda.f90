@@ -9,6 +9,8 @@
 !*******************************************************************************
 
       MODULE cuda
+      
+      USE cudaASSERT
       USE, INTRINSIC :: iso_c_binding
 
       IMPLICIT NONE
@@ -482,7 +484,8 @@
          CASE DEFAULT
             CALL cuda_assert(status, 'CUDA_ERROR_UNKNOWN')
 
-
       END SELECT
+
+      END SUBROUTINE
 
       END MODULE
