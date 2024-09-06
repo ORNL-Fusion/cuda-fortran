@@ -29,3 +29,29 @@ find_package (CudaInterface REQUIRED)
 #  Setup targets
 #-------------------------------------------------------------------------------
 add_subdirectory (source)
+
+#-------------------------------------------------------------------------------
+#  Setup testing
+#-------------------------------------------------------------------------------
+enable_testing ()
+
+#-------------------------------------------------------------------------------
+#  Define macro function to register tests.
+#-------------------------------------------------------------------------------
+macro (add_test_target target)
+    add_executable (${target})
+    target_sources (${target}
+                    PRIVATE
+                    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/${target}.f90>
+    )
+    target_link_libraries (${target}
+                           PRIVATE
+                           CudaInterface::CudaInterface
+    )
+
+    add_test (NAME ${target}
+              COMMAND ${target}
+    )
+endmacro ()
+
+add_subdirectory (tests)
