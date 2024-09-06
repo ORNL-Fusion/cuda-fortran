@@ -18,7 +18,8 @@
 
 !  Declare Arguments
       INTEGER, INTENT(IN)           :: status
-      CHARACTER (len=*), INTENT(in) :: message
+      CHARACTER (len=*), INTENT(IN) :: message
+      INTEGER, OPTIONAL, INTENT(IN) :: iounit
 
 !  Start of executable code
       WRITE (error_unit,1000) status, message
