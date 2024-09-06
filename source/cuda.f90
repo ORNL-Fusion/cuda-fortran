@@ -86,6 +86,7 @@
          CUresult FUNCTION cuCtxCreate_f(context, flags, device)               &
          BIND(C, NAME='cuCtxCreate')
          USE, INTRINSIC :: iso_c_binding
+         USE cuda
 
          IMPLICIT NONE
 
@@ -106,6 +107,7 @@
          CUresult FUNCTION cuCtxSetCurrent_f(context)                          &
          BIND(C, NAME='cuCtxSetCurrent')
          USE, INTRINSIC :: iso_c_binding
+         USE cuda
 
          IMPLICIT NONE
 
@@ -122,6 +124,7 @@
          CUresult FUNCTION cuCtxDestroy_f(context)                             &
          BIND(C, NAME='cuCtxDestroy')
          USE, INTRINSIC :: iso_c_binding
+         USE cuda
 
          IMPLICIT NONE
 
