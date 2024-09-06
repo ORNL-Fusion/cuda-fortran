@@ -51,6 +51,60 @@
 
          END FUNCTION
 
+!-------------------------------------------------------------------------------
+!>  @brief Get cuda device.
+!>
+!>  @params[out] device Handle to the cuda device.
+!>  @params[in]  index  Index of the cuda device.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuGetDevice_f(device, index)                        &
+         BIND(C, NAME='cuGetDevice')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUdevice, INTENT(OUT) :: device
+         INTEGER(C_INT)        :: index
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Create a cuda context.
+!>
+!>  @params[out] context Handle to the cuda context.
+!>  @params[in]  flags   Flags to construct the context with.
+!>  @params[in]  device  THe cuda device.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuCtxCreate_f(context, flags, device)               &
+         BIND(C, NAME='cuCtxCreate')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUcontext, INTENT(OUT) :: context
+         INTEGER(C_INT)         :: flags
+         CUdevice, VALUE        :: device
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Destroy a cuda context.
+!>
+!>  @params[in] context Handle to the cuda context.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuCtxDestroy_f(context)                             &
+         BIND(C, NAME='cuCtxDestroy')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUcontext, VALUE :: context
+
+         END FUNCTION
+
       END INTERFACE
 
 !*******************************************************************************

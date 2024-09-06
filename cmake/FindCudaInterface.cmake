@@ -34,13 +34,23 @@ if (NOT TARGET CudaInterface::CudaInterface)
 
                                 INTERFACE
 
+                                cudaDataType=INTEGER\(C_SIZE_T\)
+
                                 CUresult=INTEGER\(C_SIZE_T\)
+                                CUDevice=TYPE(\C_PTR\)
+                                CUcontext=TYPE(\C_PTR\)
+                                CUdeviceptr=TYPE(\C_PTR\)
+                                CUstream=TYPE(\C_PTR\)
+
                                 cusolverStatus_t=INTEGER\(C_SIZE_T\)
                                 cusolverDnHandle_t=TYPE\(C_PTR\)
                                 cusolverDnParams_t=TYPE\(C_PTR\)
-                                cudaDataType=INTEGER\(C_SIZE_T\)
+
                                 cublasStatus_t=INTEGER\(C_SIZE_T\)
                                 cublasLtHandle_t=TYPE\(C_PTR\)
+                                cublasLtMatmulDesc_t=TYPE\(C_PTR\)
+                                cublasLtMatrixLayout_t=TYPE\(C_PTR\)
+                                cublasLtMatmulAlgo_t=TYPE\(C_PTR\)
      )
 endif ()
 

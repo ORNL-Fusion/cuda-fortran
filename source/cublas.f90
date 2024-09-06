@@ -31,7 +31,7 @@
 
          IMPLICIT NONE
 
-         cublasLtHandle_t, INTENT(out) :: handle
+         cublasLtHandle_t, INTENT(OUT) :: handle
 
          END FUNCTION
 
@@ -47,7 +47,70 @@
 
          IMPLICIT NONE
 
-         cublasLtHandle_t, INTENT(in) :: handle
+         cublasLtHandle_t, VALUE :: handle
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Compute the matrix multiplication of two matricies.
+!>
+!>  D = alpha*(A.B) + beta*C
+!>
+!>  @params[in]  handle        Handle to the cublas library.
+!>  @params[in]  computeDesc   Compute discriptor for the maxtrix multiply.
+!>  @params[in]  alpha         Alpha scale factor.
+!>  @params[in]  A             Matrix A.
+!>  @params[in]  Adesc         Discriptor for matrix A.
+!>  @params[in]  B             Matrix B.
+!>  @params[in]  Bdesc         Discriptor for matrix B
+!>  @params[in]  beta          Beta scale factor.
+!>  @params[in]  C             Matrix C.
+!>  @params[in]  Cdesc         Discriptor for matrix C.
+!>  @params[in]  D             Matrix D.
+!>  @params[out] Ddesc         Discriptor for matrix D.
+!>  @params[in]  algo          Agorthium to use.
+!>  @params[in]  workSpace     Workspace buffer.
+!>  @params[in]  workSpaceSize Size of workspace buffer in bytes.
+!>  @params[in]  stream        Cuda stream to run the computation on.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         cublasStatus_t FUNCTION cublasLtMatmul_f(handle,                      &
+                                                  computeDesc,                 &
+                                                  alpha,                       &
+                                                  A,                           &
+                                                  Adesc,                       &
+                                                  B,                           &
+                                                  Bdesc,                       &
+                                                  beta,                        &
+                                                  C,                           &
+                                                  Cdesc,                       &
+                                                  D,                           &
+                                                  Ddesc,                       &
+                                                  algo,                        &
+                                                  workSpace,                   &
+                                                  workSpaceSize,               &
+                                                  stream)                      &
+         BIND(C, NAME='cublasLtMatmul')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         cublasLtHandle_t, VALUE           :: handle
+         cublasLtMatmulDesc_t, VALUE       :: computeDesc
+         CUdeviceptr, VALUE                :: alpha
+         CUdeviceptr, VALUE                :: A
+         cublasLtMatrixLayout_t, VALUE     :: Adesc
+         CUdeviceptr, VALUE                :: B
+         cublasLtMatrixLayout_t, VALUE     :: Bdesc
+         CUdeviceptr, VALUE                :: beta
+         CUdeviceptr, VALUE                :: C
+         cublasLtMatrixLayout_t, VALUE     :: Cdesc
+         CUdeviceptr, INTENT(OUT)          :: D
+         cublasLtMatrixLayout_t, VALUE     :: Ddesc
+         cublasLtMatmulAlgo_t, INTENT(OUT) :: algo
+         CUdeviceptr, VALUE                :: workSpace
+         INTEGER(C_SIZE_T), INTENT(IN)     :: size
+         CUstream                          :: stream
 
          END FUNCTION
 
