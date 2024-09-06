@@ -24,12 +24,12 @@
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
          CUresult FUNCTION cuInit_f(flags)                                     &
-         BIND(C, 'cuDeviceGetCount')
+         BIND(C, 'cuInit')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
 
-         INTEGER(C_UINT), VALUE, INTENT(IN) :: flags
+         INTEGER(C_INT), VALUE, INTENT(IN) :: flags
 
          END FUNCTION
 
