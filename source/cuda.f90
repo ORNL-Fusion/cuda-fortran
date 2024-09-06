@@ -105,6 +105,42 @@
 
          END FUNCTION
 
+!-------------------------------------------------------------------------------
+!>  @brief Allocate device memory.
+!>
+!>  @params[out] deviceptr Handle to the device pointer.
+!>  @params[in]  size      Size of the buffer in bytes.
+!>  @params[in]  flags     Flags to initalize the buffer with.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuMemAllocManaged_f(deviceptr, size, flags)         &
+         BIND(C, NAME='cuMemAllocManaged')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUdeviceptr, INTENT(OUT) :: deviceptr
+         INTEGER(C_SIZE_T), VALUE :: size
+         INTEGER(C_INT), VALUE    :: flags
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Free device memory.
+!>
+!>  @params[in] deviceptr Handle to the device pointer.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuMemFree_f(deviceptr)         &
+         BIND(C, NAME='cuMemFree')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUdeviceptr, VALUE :: deviceptr
+
+         END FUNCTION
+
       END INTERFACE
 
 !*******************************************************************************
@@ -243,6 +279,14 @@
          ENUMERATOR :: CUDA_ERROR_EXTERNAL_DEVICE                = 911
          ENUMERATOR :: CUDA_ERROR_INVALID_CLUSTER_SIZE           = 912
          ENUMERATOR :: CUDA_ERROR_UNKNOWN                        = 999
+      END ENUM
+
+!-------------------------------------------------------------------------------
+!>  @brief Cuda managed memory types.
+!-------------------------------------------------------------------------------
+      ENUM, BIND(C)
+         ENUMERATOR :: CU_MEM_ATTACH_GLOBAL = 1
+         ENUMERATOR :: CU_MEM_ATTACH_HOST   = 2
       END ENUM
 
       CONTAINS
