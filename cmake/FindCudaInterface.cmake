@@ -34,7 +34,7 @@ if (NOT TARGET CudaInterface::CudaInterface)
 
                                 INTERFACE
 
-                                CUResult=INTEGER\(C_INT\)
+                                CUresult=INTEGER\(C_INT\)
                                 cusolverStatus_t=INTEGER\(C_SIZE_T\)
                                 cusolverDnHandle_t=TYPE\(C_PTR\)
                                 cusolverDnParams_t=TYPE\(C_PTR\)
