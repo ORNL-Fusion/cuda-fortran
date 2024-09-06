@@ -94,6 +94,22 @@
 !>  @params[in] context Handle to the cuda context.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
+         CUresult FUNCTION cuCtxSetCurrent_f(context)                &
+         BIND(C, NAME='cuCtxSetCurrent')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUcontext, VALUE :: context
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Destroy a cuda context.
+!>
+!>  @params[in] context Handle to the cuda context.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
          CUresult FUNCTION cuDevicePrimaryCtxRelease_f(context)                &
          BIND(C, NAME='cuDevicePrimaryCtxRelease')
          USE, INTRINSIC :: iso_c_binding
