@@ -23,7 +23,7 @@ if (NOT TARGET CudaInterface::CudaInterface)
 
     target_compile_options (CudaInterface::CudaInterface
 
-                            PRIVATE
+                            INTERFACE
 
                             $<$<COMPILE_LANGUAGE:Fortran>:-cpp>
     )
