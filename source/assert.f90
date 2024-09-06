@@ -40,7 +40,7 @@
       END IF
       CALL EXIT(status)
 
-1000  FORMAT('Error stats',i2,' : ',a)
+1000  FORMAT('Error status ',i3,' : ',a)
 
       END SUBROUTINE
 
