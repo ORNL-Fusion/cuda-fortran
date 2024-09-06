@@ -21,5 +21,5 @@ target_include_directories (cuda_fortran
 
                             PUBLIC
 
-                            $<BUILD_INTERFACE:${CMAKE_CURRENT_BUILD_DIR}>
+                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
 )
