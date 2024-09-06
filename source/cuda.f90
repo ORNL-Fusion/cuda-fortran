@@ -16,12 +16,6 @@
       IMPLICIT NONE
 
 !*******************************************************************************
-!  Derived types.
-!*******************************************************************************
-      TYPE, BIND(C) :: CUcontext
-      END TYPE
-
-!*******************************************************************************
 !  Interface binding for the cusolver functions
 !*******************************************************************************
       INTERFACE
@@ -86,13 +80,12 @@
          CUresult FUNCTION cuCtxCreate_f(context, flags, device)               &
          BIND(C, NAME='cuCtxCreate')
          USE, INTRINSIC :: iso_c_binding
-         USE cuda
 
          IMPLICIT NONE
 
-         TYPE(CUcontext), POINTER :: context
-         INTEGER(C_INT), VALUE    :: flags
-         CUdevice, VALUE          :: device
+         CUcontext, INTENT(OUT) :: context
+         INTEGER(C_INT), VALUE  :: flags
+         CUdevice, VALUE        :: device
 
          END FUNCTION
 
@@ -107,11 +100,10 @@
          CUresult FUNCTION cuCtxSetCurrent_f(context)                          &
          BIND(C, NAME='cuCtxSetCurrent')
          USE, INTRINSIC :: iso_c_binding
-         USE cuda
 
          IMPLICIT NONE
 
-         TYPE(CUcontext), INTENT(in) :: context
+         CUcontext, VALUE :: context
 
          END FUNCTION
 
@@ -124,11 +116,10 @@
          CUresult FUNCTION cuCtxDestroy_f(context)                             &
          BIND(C, NAME='cuCtxDestroy')
          USE, INTRINSIC :: iso_c_binding
-         USE cuda
 
          IMPLICIT NONE
 
-         TYPE(CUcontext), INTENT(in) :: context
+         CUcontext, VALUE :: context
 
          END FUNCTION
 
