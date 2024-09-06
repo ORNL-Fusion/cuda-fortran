@@ -16,6 +16,12 @@
       IMPLICIT NONE
 
 !*******************************************************************************
+!  Derived types.
+!*******************************************************************************
+      TYPE, BIND(C) :: CUcontext
+      END TYPE
+
+!*******************************************************************************
 !  Interface binding for the cusolver functions
 !*******************************************************************************
       INTERFACE
@@ -83,9 +89,9 @@
 
          IMPLICIT NONE
 
-         CUcontext, INTENT(OUT) :: context
-         INTEGER(C_INT), VALUE  :: flags
-         CUdevice, VALUE        :: device
+         CUcontext, POINTER    :: context
+         INTEGER(C_INT), VALUE :: flags
+         CUdevice, VALUE       :: device
 
          END FUNCTION
 
@@ -103,7 +109,7 @@
 
          IMPLICIT NONE
 
-         CUcontext, VALUE :: context
+         CUcontext, INTENT(in) :: context
 
          END FUNCTION
 
@@ -119,7 +125,7 @@
 
          IMPLICIT NONE
 
-         CUcontext, VALUE :: context
+         CUcontext, INTENT(in) :: context
 
          END FUNCTION
 
