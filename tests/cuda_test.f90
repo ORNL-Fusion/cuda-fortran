@@ -30,6 +30,6 @@
       CALL cuda_checkerror(cuMemAllocManaged_f(buffer, 800_int64, CU_MEM_ATTACH_GLOBAL))
       CALL cuda_checkerror(cuMemFree_f(buffer))
 
-      CALL cuda_checkerror(cuDevicePrimaryCtxRelease_f(context))
+      CALL cuda_checkerror(cuDevicePrimaryCtxRelease_f(device))
 
       END PROGRAM
