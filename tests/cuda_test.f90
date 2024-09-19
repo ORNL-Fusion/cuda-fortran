@@ -8,6 +8,7 @@
 !>  Defines the cuba interface tests.
 !*******************************************************************************
       PROGRAM cuda_test
+      USE cuda_types
       USE cuda
       USE, INTRINSIC :: iso_fortran_env
 
