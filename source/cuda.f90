@@ -80,6 +80,7 @@
          CUresult FUNCTION cuDevicePrimaryCtxRetain_f(context, device)         &
          BIND(C, NAME='cuDevicePrimaryCtxRetain')
          USE, INTRINSIC :: iso_c_binding
+         USE cuda_types
 
          IMPLICIT NONE
 
@@ -94,9 +95,10 @@
 !>  @params[in] context Handle to the cuda context.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuCtxSetCurrent_f(context)                &
+         CUresult FUNCTION cuCtxSetCurrent_f(context)                          &
          BIND(C, NAME='cuCtxSetCurrent')
          USE, INTRINSIC :: iso_c_binding
+         USE cuda_types
 
          IMPLICIT NONE
 
@@ -110,13 +112,33 @@
 !>  @params[in] context Handle to the cuda context.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuDevicePrimaryCtxRelease_f(context)                &
+         CUresult FUNCTION cuDevicePrimaryCtxRelease_f(device)                 &
          BIND(C, NAME='cuDevicePrimaryCtxRelease')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
 
-         CUcontext, VALUE :: context
+         CUdevice, VALUE :: device
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Destroy a cuda context.
+!>
+!>  @params[in]  context Handle to the cuda context.
+!>  @params[out] flags   Primary context flags.
+!>  @params[out] active  Context state.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuDevicePrimaryCtxGetState_f(device, flags, active) &
+         BIND(C, NAME='cuDevicePrimaryCtxGetState')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         CUdevice, VALUE             :: device
+         INTEGER(C_INT), INTENT(OUT) :: flags
+         INTEGER(C_INT), INTENT(OUT) :: active
 
          END FUNCTION
 
@@ -146,13 +168,31 @@
 !>  @params[in] deviceptr Handle to the device pointer.
 !>  @returns Error status.
 !-------------------------------------------------------------------------------
-         CUresult FUNCTION cuMemFree_f(deviceptr)         &
+         CUresult FUNCTION cuMemFree_f(deviceptr)                              &
          BIND(C, NAME='cuMemFree')
          USE, INTRINSIC :: iso_c_binding
 
          IMPLICIT NONE
 
          CUdeviceptr, VALUE :: deviceptr
+
+         END FUNCTION
+
+!-------------------------------------------------------------------------------
+!>  @brief Get memory info.
+!>
+!>  @params[out] free  Size of free memory.
+!>  @params[out] total Size of total memory.
+!>  @returns Error status.
+!-------------------------------------------------------------------------------
+         CUresult FUNCTION cuMemGetInfo_f(free, total)                         &
+         BIND(C, NAME='cuMemGetInfo')
+         USE, INTRINSIC :: iso_c_binding
+
+         IMPLICIT NONE
+
+         INTEGER(C_SIZE_T), INTENT(OUT) :: free
+         INTEGER(C_SIZE_T), INTENT(OUT) :: total
 
          END FUNCTION
 
